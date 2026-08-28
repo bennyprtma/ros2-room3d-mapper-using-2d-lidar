@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+
+<robot name="room3d_robot">
+
+  <material name="biru">    <color rgba="0.2 0.5 0.9 0.9"/></material>
+  <material name="merah">   <color rgba="0.9 0.2 0.2 1.0"/></material>
+  <material name="hitam">   <color rgba="0.15 0.15 0.15 1.0"/></material>
+  <material name="abu">     <color rgba="0.6 0.6 0.6 1.0"/></material>
+
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.03" rpy="0 0 0"/>
+      <geometry><box size="0.20 0.15 0.06"/></geometry>
+      <material name="biru"/>
+    </visual>
+  </link>
+  <link name="front_marker">
+    <visual>
+      <geometry><cylinder radius="0.012" length="0.06"/></geometry>
+      <material name="merah"/>
+    </visual>
+  </link>
+  <joint name="front_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="front_marker"/>
+    <origin xyz="0.12 0 0.03" rpy="0 1.5708 0"/>
+  </joint>
+  <link name="wheel_left">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.03" length="0.02"/></geometry>
+      <material name="hitam"/>
+    </visual>
+  </link>
+  <joint name="wheel_left_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_left"/>
+    <origin xyz="0 0.0675 0.03" rpy="0 0 0"/>
+  </joint>
+  <link name="wheel_right">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5708 0 0"/>
+      <geometry><cylinder radius="0.03" length="0.02"/></geometry>
+      <material name="hitam"/>
+    </visual>
+  </link>
+  <joint name="wheel_right_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="wheel_right"/>
+    <origin xyz="0 -0.0675 0.03" rpy="0 0 0"/>
+  </joint>
+  <link name="mast">
+    <visual>
+      <geometry><cylinder radius="0.012" length="0.14"/></geometry>
+      <material name="abu"/>
+    </visual>
+  </link>
+  <joint name="mast_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="mast"/>
+    <origin xyz="0.05 0 0.13" rpy="0 0 0"/>
+  </joint>
+
+</robot>
